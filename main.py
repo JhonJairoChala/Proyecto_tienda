@@ -1,6 +1,3 @@
-
-from os import remove
-
 #Lista en la cuàl se van a almacenar todos los clientes que se creen
 clientes=[]
 
@@ -12,6 +9,7 @@ def crear_cliente():
     clientes.append(nombreCompleto)
     clientes.append(numeroCelular)
     clientes.append(saldo)
+    print("Estas son las caracteristicas del cliente: ",nombreCompleto,numeroCelular,saldo)
 
 
 #Funciòn para buscar los datos de un cliente
