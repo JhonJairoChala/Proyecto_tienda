@@ -27,14 +27,16 @@
     <div class="for">
         
             <div class="hf">
-                <label for="nombre">Nombre:</label>
-                <input class="n"  type="text" name="nombre" placeholder="Ingresa el nombre">
-            
-                <label for="saldo">Saldo:</label>
-                <input class="n" type="number" value="saldo" placeholder="Ingrese el saldo">
-            
-                <label for="numero">Numero:</label>
-                <input class="n" type="number" value="numero" placeholder="Ingrese el numero">
+                <form action="{{url_for('guardar_cliente')}}" method="POST">
+                    <label for="nombresCompleto">Nombre:</label>
+                    <input class="n"  type="text" name="nombresCompleto" id="nombresCompleto" placeholder="Ingresa el nombre">
+                
+                    <label for="saldo">Saldo:</label>
+                    <input class="n" type="number" value="saldo" name="saldo" id="saldo" placeholder="Ingrese el saldo">
+                
+                    <label for="numeroCelular">Numero:</label>
+                    <input class="n" type="number" value="numeroCelular" name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
+                </form>
             </div>
         <div class="imagen">
             <img src="images/crear.jpeg" alt="">

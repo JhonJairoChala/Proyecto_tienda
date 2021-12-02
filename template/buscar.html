@@ -25,15 +25,14 @@
     <h2>Formulario Buscar Cliente</h2>
     <div class="for">
             <div class="hf">
-            
-                <label for="numero">Numero:</label>
-                <input class="n" type="number" value="numero" placeholder="Ingrese el numero">
-
+                <form action="{{url_for('obtener_cliente')}}" method="POST">
+                    <label for="numeroCelular">Numero:</label>
+                    <input class="n" type="number" value="numeroCelular" name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
+                </form>
             </div>
         <div class="imagen">
             <img src="images/buscando.jpeg" alt="">
         </div>
     </div>
-
 </body>
 </html>
