@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +13,10 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="crear.html">Crear Cliente</a></li>
-                    <li><a href="buscar.html"> <span>Buscar Cliente</span></a></li>
-                    <li><a href="actualizar.html">Actualizar Cliente</a></li>
+                    <li><a href="{{url_for('principal')}}">Inicio</a></li>
+                    <li><a href="{{url_for('agregar_cliente')}}">Crear Cliente</a></li>
+                    <li><a href="{{url_for('buscar_cliente')}}"> <span>Buscar Cliente</span></a></li>
+                    <li><a href="{{url_for('editar_cliente')}}">Actualizar Cliente</a></li>
                 </ul>
             </nav>
         </div>
@@ -25,9 +25,9 @@
     <h2>Formulario Buscar Cliente</h2>
     <div class="for">
             <div class="hf">
-                <form action="{{url_for('obtener_cliente')}}" method="POST">
+                <form action="{{url_for('obtener_Cliente')}}" method="POST">
                     <label for="numeroCelular">Numero:</label>
-                    <input class="n" type="number" value="numeroCelular" name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
+                    <input class="n" type="number"  name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
                 </form>
             </div>
         <div class="imagen">

@@ -55,25 +55,22 @@ header h1{
     width:60%;
     border-collapse: collapse;
     background-size: cover;
-
 }
 
 table th{
     border:3px solid black;
     border-collapse: collapse;
     font-size:50px;
-
 }
 
-tbody td{
+table tbody tr td{
     border:3px solid black;
     border-collapse: collapse;
+    background-color: black;
 }
 
 .table{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: 30%;
 }
 
 .tt{
@@ -141,4 +138,8 @@ h2{
 
 .n{
     text-align:center;
+}
+
+.boton1{
+    height: 30px;
 }

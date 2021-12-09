@@ -27,4 +27,13 @@ def actualizar_Cliente(nombresCompleto,numeroCelular,saldo):
     conexion.commit()
     conexion.close()
 
-
+def listar_Cliente():
+    conexion = obtener_conexion()
+    clientes = []
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT clientes.nombresCompleto as nombresCompleto, clientes.numeroCelular as numeroCelular, clientes.saldo as saldo FROM tienda.clientes ")
+        clientes = cursor.fetchall()
+        for c in clientes:
+            print(c)
+    conexion.close()
+    return clientes

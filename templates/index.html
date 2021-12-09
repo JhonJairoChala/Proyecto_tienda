@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Inicio</title>   
 </head>
 <body>
     <header>
@@ -13,10 +13,10 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="index.html"><span>Inicio</span></a></li>
-                    <li><a href="crear.html">Crear Cliente</a></li>
-                    <li><a href="buscar.html">Buscar Cliente</a></li>
-                    <li><a href="actualizar.html">Actualizar Cliente</a></li>
+                    <li><a href="{{url_for('principal')}}"><span>Inicio</span></a></li>
+                    <li><a href="{{url_for('agregar_cliente')}}">Crear Cliente</a></li>
+                    <li><a href="{{url_for('buscar_cliente')}}">Buscar Cliente</a></li>
+                    <li><a href="{{url_for('editar_cliente')}}">Actualizar Cliente</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,11 +34,13 @@
                 </tr>
             </thead>
             <tbody>
+                {% for cliente in clientes %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{cliente[0]}}</td>
+                    <td>{{cliente[1]}}</td>
+                    <td>{{cliente[2]}}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

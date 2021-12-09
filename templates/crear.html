@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar cliente</title>
+    <title>Crear cliente</title>
 </head>
 <body>
     <header>
@@ -13,34 +14,35 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="crear.html">Crear Cliente</a></li>
-                    <li><a href="buscar.html"> Buscar Cliente</a></li>
-                    <li><a href="actualizar.html"> <span>Actualizar Cliente</span></a></li>
+                    <li><a href="{{url_for('principal')}}">Inicio</a></li>
+                    <li><a href="{{url_for('agregar_cliente')}}"><span>Crear Cliente</span></a></li>
+                    <li><a href="{{url_for('buscar_cliente')}}">Buscar Cliente</a></li>
+                    <li><a href="{{url_for('editar_cliente')}}">Actualizar Cliente</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <div class="pared"></div>
-    <h2>Formulario Actualizar Cliente</h2>
+    <h2>Formulario Insertar Cliente</h2>
     <div class="for">
         
             <div class="hf">
-                <form action="{{url_for('actualizar_cliente')}}" method="POST">
+                <form action="{{url_for('guardar_cliente')}}" method="POST">
                     <label for="nombresCompleto">Nombre:</label>
                     <input class="n"  type="text" name="nombresCompleto" id="nombresCompleto" placeholder="Ingresa el nombre">
-                
+                    <br>
                     <label for="saldo">Saldo:</label>
                     <input class="n" type="number" value="saldo" name="saldo" id="saldo" placeholder="Ingrese el saldo">
-                
+                    <br>
                     <label for="numeroCelular">Numero:</label>
-                    <input class="n" type="number" value="numeroCelular" name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
+                    <input class="n" type="number" name="numeroCelular" id="numeroCelular" placeholder="Ingrese el numero">
+                    <br>
+                    <button type="submit" class="boton1">Registrarse</button>
                 </form>
             </div>
         <div class="imagen">
-            <img src="images/actualizar.jpeg" alt="">
+            <img src="..css/images/crear.jpeg" alt="">
         </div>
     </div>
-
 </body>
 </html>
