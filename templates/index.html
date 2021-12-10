@@ -25,24 +25,24 @@
     <br>
     <br>
     <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Celular</th>
-                    <th>Saldo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cliente in clientes %}
-                <tr>
-                    <td>{{cliente[0]}}</td>
-                    <td>{{cliente[1]}}</td>
-                    <td>{{cliente[2]}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Celular</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                        <tr>
+                            <td>{{cliente[0]}}</td>
+                            <td>{{cliente[1]}}</td>
+                            <td>{{cliente[2]}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
     </div>
 </body>
 </html>

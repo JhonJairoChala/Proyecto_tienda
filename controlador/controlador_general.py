@@ -14,8 +14,8 @@ def obtener_Cliente(numeroCelular):
     conexion = obtener_conexion()
     cliente = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT clientes.nombresCompleto as nombresCompleto, clientes.numeroCelular as numeroCelular, clientes.saldo as saldo FROM tienda.clientes WHERE numeroCelular = %s", (numeroCelular,))
-        cliente = cursor.fetchone()
+        cursor.execute("SELECT nombresCompleto, numeroCelular, saldo FROM tienda.clientes WHERE numeroCelular = %s", (numeroCelular))
+    cliente = cursor.fetchone()
     conexion.close()
     return cliente
 
@@ -33,7 +33,5 @@ def listar_Cliente():
     with conexion.cursor() as cursor:
         cursor.execute("SELECT clientes.nombresCompleto as nombresCompleto, clientes.numeroCelular as numeroCelular, clientes.saldo as saldo FROM tienda.clientes ")
         clientes = cursor.fetchall()
-        for c in clientes:
-            print(c)
     conexion.close()
     return clientes

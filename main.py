@@ -18,9 +18,12 @@ from controlador import controlador_general
 
 app = Flask(__name__)
 
+buscar_clientes=[]
+
 @app.route("/")
 def principal():
-        return render_template('index.html')
+        clientes = listar_Cliente()
+        return render_template('index.html', clientes = clientes)
 
 #Funcion para redireccionar al formulario para agregar un cliente
 @app.route("/agregar_cliente")
@@ -38,39 +41,47 @@ def guardar_cliente():
 
 #Funcion para redireccionar al formulario para editar/actualizar cliente
 @app.route("/formulario_editar_cliente")
-def editar_cliente(numeroCelular):
-        Cliente = obtener_Cliente(numeroCelular)
-        return render_template('actualizar.html', cliente=Cliente)
+def editar_cliente():
+        return render_template('actualizar.html')
 
 #Funcion para actualizar al cliente con los datos dados en el formulario
 @app.route("/actualizar_Cliente", methods=["POST"])
 def actualizar_cliente(): 
-        numeroCelular = request.form["numeroCelular"]
         nombresCompleto = request.form["nombresCompleto"]
+        numeroCelular = request.form["numeroCelular"]
         saldo = request.form["saldo"]
         actualizar_Cliente(nombresCompleto, numeroCelular, saldo)
         return redirect("/")
 
 #Funcion para redireccionar al formulario de obtener cliente
 @app.route("/formulario_obtener_cliente")
-def buscar_cliente(numeroCelular):
-    cliente = obtener_Cliente(numeroCelular)
-    return render_template('buscar.html', cliente = cliente)
+def buscar_cliente():
+        return render_template('imprimir_buscar.html')
 
-#Funcion para buscar el cliente y obtener sus datos
-@app.route("/obtener_Cliente", methods=["POST"])
-def obtener_Cliente():
+@app.route("/otro")
+def otro ():
+        return render_template('otro.html',buscar_clientes=buscar_clientes)
+
+@app.route("/cualquiera")
+def cualquiera():
+        return render_template("imprimir_buscar.html")
+
+
+@app.route("/imprimir_Datos", methods=["POST"])
+def buscar_Cliente_Por_Celular():
         numeroCelular = request.form["numeroCelular"]
-        obtener_Cliente(numeroCelular)
-        return redirect("/")
-
-
-@app.route("/menu_General")
-def clientes():
-    clientes = listar_Cliente()
-    return render_template("/", cliente=clientes)
-
+        cliente = controlador_general.obtener_Cliente(numeroCelular)
+        print ("este es el cliente", cliente)
+        buscar_clientes.append(cliente)
+        try:
+                if numeroCelular == cliente[1]:
+                        print ("Entro por a qui")
+                        return redirect ('/otro')
+                else:
+                        return "Error el numero no existe"
+        except Exception as error:
+                return redirect ("/cualquiera")
 if __name__ == "__main__":
-    app.run(port=7000, debug=True)
+    app.run( port=5000, debug=True)
 
 
